@@ -14,17 +14,13 @@ class MyMap extends Component {
     weight: 2,
   };
 
-  onEachFeature=(feature, layer )=>{
-    const featureName= feature.properties.ADMIN;
+  onEachFeature = (feature, layer) => {
+    const featureName = feature.properties.ADMIN;
     console.log(featureName);
     layer.bindPopup(featureName);
     layer.on({
-        click:(event)=>{
-
-        },
-
-    })
-
+      click: (event) => {},
+    });
   };
   render() {
     return (
@@ -32,7 +28,11 @@ class MyMap extends Component {
         {" "}
         <h1 style={{ textAlign: "center" }}> My Map</h1>
         <MapContainer style={{ height: "80vh" }} zoom={"2"} center={[20, 100]}>
-          <GeoJSON style={this.countryStyle} data={mapData.features} onEachFeature ={this.onEachFeature}/>
+          <GeoJSON
+            style={this.countryStyle}
+            data={mapData.features}
+            onEachFeature={this.onEachFeature}
+          />
         </MapContainer>
       </div>
     );
